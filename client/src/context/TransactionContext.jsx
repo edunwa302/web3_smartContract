@@ -3,6 +3,7 @@ import React from 'react';
 import { ethers } from "ethers";
 import { contractABI, contractAddress } from "../utils/constants";
 export const TransactionsContext = React.createContext();
+import MetaMaskOnboarding from '@metamask/onboarding';
 
 const { ethereum } = window;
 
@@ -64,8 +65,8 @@ export const TransactionProvider = ({ children }) => {
     const checkIfWalletIsConnected = async () => {
         try {
             if(!ethereum) {
-                const onboarding = new MetaMaskOnboarding();
-                onboarding.startOnboarding();
+                // const onboarding = new MetaMaskOnboarding();
+                // onboarding.startOnboarding();
                 return alert("please install metaMask")
             };
 
