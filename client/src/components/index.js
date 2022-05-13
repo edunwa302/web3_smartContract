@@ -9,3 +9,6 @@ export { default as Transactions } from './Transactions';
 
 export { default as Footer } from './Footer';
 
+export { default as MetaMaskBtn } from './MetaMaskBtn';
+
+

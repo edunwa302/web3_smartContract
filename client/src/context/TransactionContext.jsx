@@ -3,6 +3,7 @@ import React from 'react';
 import { ethers } from "ethers";
 import { contractABI, contractAddress } from "../utils/constants";
 export const TransactionsContext = React.createContext();
+import MetaMaskOnboarding from '@metamask/onboarding';
 
 const { ethereum } = window;
 
@@ -63,28 +64,28 @@ export const TransactionProvider = ({ children }) => {
     // check if user has metaMask
     const checkIfWalletIsConnected = async () => {
         try {
-            if(!ethereum) {
-                const onboarding = new MetaMaskOnboarding();
-                onboarding.startOnboarding();
-                return alert("please install metaMask")
-            };
+            if(ethereum) {
+                // if connected
+                const accounts = await ethereum.request({ method: 'eth_accounts' });
+                // set current account
+                if(accounts.length) {
+                    setCurrentAccount(accounts[0]);
 
-            // if connected
-            const accounts = await ethereum.request({ method: 'eth_accounts' });
-            // set current account
-            if(accounts.length) {
-                setCurrentAccount(accounts[0]);
-
-            // get all trans
-            getAllTransactions()
+                // get all trans
+                getAllTransactions()
+                } else {
+                    console.log('no account found')
+                }
+                
+                // check if account changed
+                ethereum.on('accountsChanged', (accounts) => {
+                    setCurrentAccount(accounts[0]);
+                });
+                // const onboarding = new MetaMaskOnboarding();
+                // onboarding.startOnboarding();
+                // return alert("please install metaMask")
             } else {
-                console.log('no account found')
             }
-            
-            // check if account changed
-            ethereum.on('accountsChanged', (accounts) => {
-                setCurrentAccount(accounts[0]);
-            });
 
         } catch (error) {
             console.log(error)
