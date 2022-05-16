@@ -54,9 +54,9 @@ const Transactions = () => {
         <div className="flex w-full justify-center items-center 2xl:px-20 gradient-bg-transactions">
             <div className="flex flex-col md:p-12 sm:py-12 px-4">
                 {currentAccount ? (
-                    <h3 className="text-white text-center my-2">Latest Trasnsactions</h3>
+                    <h1 className="text-white text-center my-2 text-xl">Latest Trasnsactions</h1>
                 ) : (
-                    <h3 className="text-white text-center my-2">Connect your account to see the lastest chain</h3>
+                    <h1 className="text-white text-center my-2 text-xl">Connect your account to see the lastest chain</h1>
                 )}
                 {/* latest trns */}
 
