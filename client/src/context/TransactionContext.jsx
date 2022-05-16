@@ -3,7 +3,6 @@ import React from 'react';
 import { ethers } from "ethers";
 import { contractABI, contractAddress } from "../utils/constants";
 export const TransactionsContext = React.createContext();
-import MetaMaskOnboarding from '@metamask/onboarding';
 
 const { ethereum } = window;
 
@@ -13,12 +12,6 @@ const getEthereumContract = () => {
     const transactionContract = new ethers.Contract(contractAddress, contractABI, signer);
 
     return transactionContract;
-
-    // console.log({
-    //     provider,
-    //     signer,
-    //     transactionContract
-    // })
 }
 
 export const TransactionProvider = ({ children }) => {
@@ -81,9 +74,6 @@ export const TransactionProvider = ({ children }) => {
                 ethereum.on('accountsChanged', (accounts) => {
                     setCurrentAccount(accounts[0]);
                 });
-                // const onboarding = new MetaMaskOnboarding();
-                // onboarding.startOnboarding();
-                // return alert("please install metaMask")
             } else {
             }
 
@@ -107,20 +97,20 @@ export const TransactionProvider = ({ children }) => {
 
     // connect wallet
     const connectWallet = async () => {
-        try {
-            const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
-            // setCurrentAccount(accounts[0]);
-            if(accounts.length) {
-                setCurrentAccount(accounts[0]);
+        // try {
+        //     const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+        //     // setCurrentAccount(accounts[0]);
+        //     if(accounts.length) {
+        //         setCurrentAccount(accounts[0]);
 
-            }
-        } catch (error) {
-            if(error.code === -32002) {
-                alert("metamask is already open look at the bottom of your screen ")
-            }
+        //     }
+        // } catch (error) {
+        //     if(error.code === -32002) {
+        //         alert("metamask is already open look at the bottom of your screen ")
+        //     }
 
-            console.log(error)
-        }
+        //     console.log(error)
+        // }
     }
 
     // send transaction
