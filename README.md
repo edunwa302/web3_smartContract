@@ -4,4 +4,4 @@
 The transactions re run on testnet (ropsten) testnet.
 
 View Demo hosting here
-https://628211bc21663a6d77adb3f4--resonant-lokum-4cd29a.netlify.app/
+https://resonant-lokum-4cd29a.netlify.app/
