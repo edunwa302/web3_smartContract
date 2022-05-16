@@ -16,8 +16,8 @@ const Footer = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center flex-col mt-5">
-                <p className='text-white text-sm text-center'>come join us</p>
-                <p className='text-white text-sm text-center'>info@nedstack.com.ng</p>
+                <p className='text-white text-sm text-center'>Contact me</p>
+                <p className='text-white text-sm text-center'>edunwa302@gmail.com</p>
             </div>
 
             <div className='sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5'/>

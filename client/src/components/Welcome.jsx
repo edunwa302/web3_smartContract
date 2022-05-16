@@ -44,24 +44,16 @@ const Welcome = () => {
 
     return (
         <div className="flex w-full justify-center">
-            <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-20 px-4">
+            <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 sm:py-20 px-4">
                 {/* left col */}
                 <div className="flex flex-1 justify-start flex-col mf:mr-10">
-                    <h1 className="text-2xl sm:text-5xl text-white text-gradient py-1">send crpto <br/> across the world</h1>
+                    <h1 className="text-3xl sm:text-5xl text-white text-gradient py-1">send crpto <br/> across the world</h1>
                     <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">Explore the cryptocurrency world buy nd sell easly with kript </p>
                     {!currentAccount && (
                         <>
                             <MetaMaskBtn/>
-
-                            {/* <button 
-                                type="button"
-                                onClick={connectWallet}
-                                className="flex flex-row justify-center items-center my-5 bg-[#2952e3] hover:bg-[#7081eb] p-3 rounded-full cursor-ponter hover:bg-[#2546b]"
-                            ><span className="font-bold text-gray-500 hover:text-white text-base ">Connect Wallet</span>
-                            </button> */}
                         </>
                     )}
-                            {/* <MetaMaskBtn/> */}
 
                 
                     {/* blocks */}
@@ -72,10 +64,10 @@ const Welcome = () => {
                         <div className={commonStyles}>
                             Security
                         </div>
-                        <div className={`rounded-tr-2xl ${commonStyles}`}>
+                        <div className={`sm:rounded-tr-2xl ${commonStyles}`}>
                             Etheruem
                         </div>
-                        <div className={`rounded-bl-2xl ${commonStyles}`}>
+                        <div className={`sm:rounded-bl-2xl ${commonStyles}`}>
                             Web 3.0
                         </div>
                         <div className={commonStyles}>
@@ -90,7 +82,7 @@ const Welcome = () => {
                 <div className="flex flex-col flex-1 w-full items-center justify-start mf:mt-10 mt-10">
                     <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card white-glsssmorphism">
                         <div className="flex justify-between flex-col w-full h-full">
-                            <div className="flex justify-between items-start">
+                            <div className="flex justify-between items-center">
                                 <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
                                     <SiEthereum fontSize={21} color='#fff' />
                                 </div>
@@ -101,7 +93,7 @@ const Welcome = () => {
                                     {shortenAddress(currentAccount)}
                                 </p>
                                 <p className="text-white font-light text-sm mt-1">
-                                    Ethereum:
+                                    Ethereum
                                 </p>
                             </div>
                         </div>
